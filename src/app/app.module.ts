@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicModule } from 'ionic-angular';
+import { Pro } from '@ionic/pro';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -9,7 +10,6 @@ import { AuthProvider } from '../providers/auth/auth';
 import { DatabaseProvider } from '../providers/database/database';
 import { Facebook } from '@ionic-native/facebook';
 import { Geolocation } from '@ionic-native/geolocation';
-
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -24,6 +24,16 @@ const firebaseConfig = {
     storageBucket: "ionic-start-6352d.appspot.com",
     messagingSenderId: "890838654519"
   };
+
+  const IonicPro = Pro.init('5b7acb30', {
+    appVersion: "0.0.1"
+  });
+
+  export class MyErrorHandler implements ErrorHandler {
+    handleError(err: any): void {
+      IonicPro.monitoring.handleNewError(err);
+    }
+  }
 
 @NgModule({
   declarations: [
@@ -43,7 +53,7 @@ const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler, useClass: MyErrorHandler},
     AuthProvider,
     DatabaseProvider,
     Facebook,
