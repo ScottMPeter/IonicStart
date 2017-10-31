@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 
 @IonicPage()
 @Component({
@@ -7,11 +8,18 @@ import { IonicPage } from 'ionic-angular';
 })
 export class TabsPage {
 
-  tab1Root:string  = 'HomePage';
+  tab1Root:string = 'HomePage';
   tab2Root:string = 'MapsPage';
   tab3Root:string = 'ListPage';
 
-  constructor() {
+  constructor(public navCtrl: NavController, public authData: AuthProvider) {
 
+  }
+
+
+  logOut(){
+    this.authData.logoutUser();
+
+    this.navCtrl.setRoot('LoginPage');
   }
 }

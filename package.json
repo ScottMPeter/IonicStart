@@ -28,9 +28,9 @@
     "@ionic/pro": "^1.0.11",
     "@ionic/storage": "2.0.1",
     "angularfire2": "^4.0.0-rc.1",
-    "cordova-android": "^6.2.3",
-    "cordova-browser": "^4.1.0",
-    "cordova-ios": "4.5.2",
+    "cordova-android": "^6.3.0",
+    "cordova-browser": "4.1.0",
+    "cordova-ios": "^4.5.2",
     "cordova-plugin-add-swift-support": "^1.7.0",
     "cordova-plugin-browsertab": "file:node_modules/cordova-plugin-browsertab",
     "cordova-plugin-buildinfo": "^1.1.0",
@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "2.1.3",
-    "ionic": "3.15.1",
+    "ionic": "3.15.2",
     "typescript": "2.3.4"
   },
   "description": "An Ionic project",

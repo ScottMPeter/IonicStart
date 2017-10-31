@@ -16,9 +16,4 @@ export class HomePage {
   ionViewCanEnter() {
     return this.authData.authenticated();
   }
-
-  logout(){
-    this.authData.logoutUser();
-    this.navCtrl.setRoot('LoginPage');
-  }
 }
